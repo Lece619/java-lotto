@@ -8,6 +8,8 @@ public class OutputView {
 
     private static final String PURCHASE_MESSAGE = "구입금액을 입력해 주세요.";
     private static final String PURCHASE_LOTTO_SIZE = "%d개를 구매했습니다.\n";
+    private static final String INPUT_WINNING_NUMBER = "당첨 번호를 입력해 주세요.";
+    private static final String INPUT_BONUS_NUMBER = "보너스 번호를 입력해 주세요.";
 
     public void printPurchaseMessage(){
         System.out.println(PURCHASE_MESSAGE);
@@ -21,6 +23,8 @@ public class OutputView {
             List<Integer> numbers = lotto.getNumbers();
             System.out.println( lottoPrinter(numbers) );
         }
+
+        System.out.println();
     }
 
     public String lottoPrinter(List<Integer> numbers) {
@@ -37,5 +41,13 @@ public class OutputView {
         line.append("]");
 
         return line.toString();
+    }
+
+    public void printInputWinningNumbers() {
+        System.out.println(INPUT_WINNING_NUMBER);
+    }
+
+    public void printInputBonusNumber() {
+        System.out.println(INPUT_BONUS_NUMBER);
     }
 }

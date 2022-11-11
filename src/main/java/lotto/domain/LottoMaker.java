@@ -33,4 +33,6 @@ public class LottoMaker {
     public List<Lotto> getLottos() {
         return lottos;
     }
+
+
 }

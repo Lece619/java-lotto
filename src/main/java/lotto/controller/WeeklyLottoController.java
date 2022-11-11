@@ -7,10 +7,10 @@ public class WeeklyLottoController {
     private final LottoService lottoService = new LottoService();
 
     public void run(){
-
         try {
             lottoService.purchaseLotto();
             lottoService.printLottos();
+            lottoService.inputWinningNumber();
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
