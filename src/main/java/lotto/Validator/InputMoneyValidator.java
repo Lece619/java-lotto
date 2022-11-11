@@ -6,7 +6,7 @@ public class InputMoneyValidator {
 
     private static final int LOTTO_PRICE = 1000;
 
-    public String validate(String money) {
+    public String moneyValidate(String money) {
 
         try{
             int moneyToInt = Integer.parseInt(money);

@@ -15,7 +15,7 @@ class InputMoneyValidatorTest {
 
         String money = "1000원";
 
-        Assertions.assertThatThrownBy(() -> inputMoneyValidator.validate(money))
+        Assertions.assertThatThrownBy(() -> inputMoneyValidator.moneyValidate(money))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.MONEY_NOT_INTEGER_ERROR.getMessage());
 
@@ -27,7 +27,7 @@ class InputMoneyValidatorTest {
 
         String money = "0";
 
-        Assertions.assertThatThrownBy(() -> inputMoneyValidator.validate(money))
+        Assertions.assertThatThrownBy(() -> inputMoneyValidator.moneyValidate(money))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.MONEY_NOT_ZERO_ERROR.getMessage());
 
@@ -39,7 +39,7 @@ class InputMoneyValidatorTest {
 
         String money = "1200";
 
-        Assertions.assertThatThrownBy(() -> inputMoneyValidator.validate(money))
+        Assertions.assertThatThrownBy(() -> inputMoneyValidator.moneyValidate(money))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.MONEY_PRICE_ERROR.getMessage());
 

@@ -11,6 +11,6 @@ public class InputView {
 
     public void purchase(){
         outputView.printPurchaseMessage();
-        String money = inputMoneyValidator.validate(readLine());
+        String money = inputMoneyValidator.moneyValidate(readLine());
     }
 }
