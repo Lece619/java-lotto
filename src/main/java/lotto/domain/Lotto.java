@@ -17,7 +17,7 @@ public class Lotto {
 
     private void validateSize(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.LOTTO_SIZE_ERROR.getMessage());
         }
     }
 
@@ -26,7 +26,7 @@ public class Lotto {
         int size = new HashSet<>(numbers).size();
 
         if(size != 6){
-            throw new IllegalArgumentException(ErrorMessage.LottoNumberOverLabError.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.LOTTO_OVER_LAB_ERROR.getMessage());
         }
     }
 
