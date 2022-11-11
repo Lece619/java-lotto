@@ -8,8 +8,11 @@ public class WeeklyLottoController {
 
     public void run(){
 
-        lottoService.purchaseLotto();
-        lottoService.printLottos();
-
+        try {
+            lottoService.purchaseLotto();
+            lottoService.printLottos();
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
