@@ -9,6 +9,7 @@ public class WeeklyLottoController {
     public void run(){
 
         lottoService.purchaseLotto();
+        lottoService.printLottos();
 
     }
 }

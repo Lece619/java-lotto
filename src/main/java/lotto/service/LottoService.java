@@ -4,6 +4,7 @@ import lotto.domain.LottoMaker;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
+
 public class LottoService {
 
     private final LottoMaker lottoMaker = new LottoMaker();
@@ -17,4 +18,7 @@ public class LottoService {
 
     }
 
+    public void printLottos() {
+        outputView.printLottos(lottoMaker.getLottos());
+    }
 }

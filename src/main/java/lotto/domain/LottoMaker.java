@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import lotto.VO.LottoInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LottoMaker {
@@ -24,7 +25,12 @@ public class LottoMaker {
     public Lotto makeLotto(){
 
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        Collections.sort(numbers);
 
         return new Lotto(numbers);
+    }
+
+    public List<Lotto> getLottos() {
+        return lottos;
     }
 }
