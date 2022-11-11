@@ -9,8 +9,9 @@ public class InputView {
     private final OutputView outputView = new OutputView();
     private final InputMoneyValidator inputMoneyValidator = new InputMoneyValidator();
 
-    public void purchase(){
+    public String purchaseMoney(){
+
         outputView.printPurchaseMessage();
-        String money = inputMoneyValidator.moneyValidate(readLine());
+        return inputMoneyValidator.moneyValidate(readLine());
     }
 }

@@ -11,7 +11,10 @@ public class LottoService {
     private final OutputView outputView = new OutputView();
 
     public void purchaseLotto() {
-        inputView.purchase();
+
+        String money = inputView.purchaseMoney();
+        lottoMaker.purchase(money);
+
     }
 
 }

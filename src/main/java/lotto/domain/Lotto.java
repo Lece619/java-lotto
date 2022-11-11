@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import lotto.VO.LottoInfo;
 import lotto.view.ErrorMessage;
 
 import java.util.HashSet;
@@ -16,7 +17,7 @@ public class Lotto {
     }
 
     private void validateSize(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != LottoInfo.LOTTO_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.LOTTO_SIZE_ERROR.getMessage());
         }
     }
@@ -25,7 +26,7 @@ public class Lotto {
 
         int size = new HashSet<>(numbers).size();
 
-        if(size != 6){
+        if(size != LottoInfo.LOTTO_LENGTH){
             throw new IllegalArgumentException(ErrorMessage.LOTTO_OVER_LAB_ERROR.getMessage());
         }
     }
