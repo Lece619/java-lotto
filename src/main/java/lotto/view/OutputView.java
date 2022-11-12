@@ -3,8 +3,11 @@ package lotto.view;
 import lotto.VO.LottoPrice;
 import lotto.domain.Lotto;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /*
 당첨 통계
@@ -44,13 +47,13 @@ public class OutputView {
     public String lottoPrinter(List<Integer> numbers) {
 
         StringBuilder line = new StringBuilder();
+        ArrayList<Integer> lottoNumbers = new ArrayList<>(numbers);
+        Collections.sort(lottoNumbers);
 
         line.append("[");
-
-        for (Integer number : numbers) {
+        for (Integer number : lottoNumbers) {
             line.append(number).append(", ");
         }
-
         line.delete(line.lastIndexOf(","),line.length());
         line.append("]");
 
