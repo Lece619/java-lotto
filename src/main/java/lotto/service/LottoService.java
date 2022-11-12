@@ -18,6 +18,7 @@ public class LottoService {
 
         String money = inputView.purchaseMoney();
         lottoMaker.purchase(money);
+        lottoCompany.setMoney(money);
         System.out.println();
     }
 
@@ -29,5 +30,14 @@ public class LottoService {
     public void inputWinningNumber() {
         WinningNumber winningNumber = inputView.winningNumbers();
         lottoCompany.setWinningNumber(winningNumber);
+    }
+
+
+    public void checkLottoPrice() {
+        lottoCompany.WinningConfirmation( lottoMaker.getLottos() );
+    }
+
+    public void printPriceTotal() {
+        outputView.printPrice(lottoCompany.getTotalPrices());
     }
 }

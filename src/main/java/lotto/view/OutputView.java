@@ -1,15 +1,28 @@
 package lotto.view;
 
+import lotto.VO.LottoPrice;
 import lotto.domain.Lotto;
 
 import java.util.List;
+import java.util.Map;
 
+/*
+당첨 통계
+---
+3개 일치 (5,000원) - 1개
+4개 일치 (50,000원) - 0개
+5개 일치 (1,500,000원) - 0개
+5개 일치, 보너스 볼 일치 (30,000,000원) - 0개
+6개 일치 (2,000,000,000원) - 0개
+총 수익률은 62.5%입니다.
+* */
 public class OutputView {
 
     private static final String PURCHASE_MESSAGE = "구입금액을 입력해 주세요.";
     private static final String PURCHASE_LOTTO_SIZE = "%d개를 구매했습니다.\n";
     private static final String INPUT_WINNING_NUMBER = "당첨 번호를 입력해 주세요.";
     private static final String INPUT_BONUS_NUMBER = "보너스 번호를 입력해 주세요.";
+    private static final String WINNING_PRICE_CONFIRMATION = "당첨 통계\n---";
 
     public void printPurchaseMessage(){
         System.out.println(PURCHASE_MESSAGE);
@@ -50,4 +63,14 @@ public class OutputView {
     public void printInputBonusNumber() {
         System.out.println(INPUT_BONUS_NUMBER);
     }
+
+    public void printPrice(Map<LottoPrice, Integer> totalPrices) {
+        System.out.println(WINNING_PRICE_CONFIRMATION);
+
+        for (int i = 5; i >= 1; i--) {
+            LottoPrice key = LottoPrice.findByRank(i);
+            System.out.printf(key.getMessage(), totalPrices.get(key));
+        }
+    }
+
 }

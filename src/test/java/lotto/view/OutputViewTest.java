@@ -1,5 +1,6 @@
 package lotto.view;
 
+import lotto.VO.LottoPrice;
 import lotto.domain.Lotto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +9,10 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,4 +58,18 @@ class OutputViewTest {
         ,"[1, 2, 3, 4, 5, 6]", "[2, 3, 4, 5, 6, 7]");
     }
 
+    @Test
+    @DisplayName("당첨 확인 통계 메시지 테스트")
+    void printWinningMessage(){
+
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        Map<LottoPrice, Integer> totalPrices = new HashMap<>();
+        Arrays.stream(LottoPrice.values()).forEach(lottoPrice->totalPrices.put(lottoPrice,0));
+
+        outputView.printPrice(totalPrices);
+
+        Assertions.assertThat(output.toString().trim()).contains("3개 일치 (5,000원)");
+    }
 }

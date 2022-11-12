@@ -11,6 +11,8 @@ public class WeeklyLottoController {
             lottoService.purchaseLotto();
             lottoService.printLottos();
             lottoService.inputWinningNumber();
+            lottoService.checkLottoPrice();
+            lottoService.printPriceTotal();
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
