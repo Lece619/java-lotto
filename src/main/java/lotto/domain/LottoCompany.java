@@ -12,7 +12,7 @@ public class LottoCompany {
     private WinningNumber winningNumber;
     private long money;
     private long winningMoney;
-    private static Map<LottoPrice, Integer> totalPrices = new LinkedHashMap<>();
+    private static Map<LottoPrice, Integer> totalPrices = new HashMap<>();
 
     public LottoCompany() {
         for (LottoPrice lottoPrice : LottoPrice.values()) {

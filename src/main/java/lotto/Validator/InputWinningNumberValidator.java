@@ -1,7 +1,6 @@
 package lotto.Validator;
 
 import lotto.VO.LottoInfo;
-import lotto.view.ErrorMessage;
 
 import java.util.Arrays;
 import java.util.List;

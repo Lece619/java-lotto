@@ -1,4 +1,4 @@
-package lotto.view;
+package lotto.Validator;
 
 public enum ErrorMessage {
 

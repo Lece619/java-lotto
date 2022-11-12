@@ -1,6 +1,5 @@
 package lotto.Validator;
 
-import lotto.view.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

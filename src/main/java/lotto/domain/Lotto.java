@@ -1,7 +1,7 @@
 package lotto.domain;
 
 import lotto.VO.LottoInfo;
-import lotto.view.ErrorMessage;
+import lotto.Validator.ErrorMessage;
 
 import java.util.HashSet;
 import java.util.List;
