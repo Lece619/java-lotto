@@ -39,5 +39,7 @@ public class LottoService {
 
     public void printPriceTotal() {
         outputView.printPrice(lottoCompany.getTotalPrices());
+        outputView.printYield(lottoCompany.getYield());
     }
+
 }

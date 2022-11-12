@@ -20,21 +20,6 @@ public class LottoCompany {
         }
     }
 
-    public void setWinningNumber(WinningNumber winningNumber) {
-        this.winningNumber = winningNumber;
-    }
-
-    public void setMoney(String money) {
-        this.money = Integer.parseInt(money);
-    }
-
-    public long getWinningMoney() {
-        return winningMoney;
-    }
-
-    public Map<LottoPrice, Integer> getTotalPrices() {
-        return totalPrices;
-    }
 
     public void WinningConfirmation(List<Lotto> lottos) {
 
@@ -44,7 +29,7 @@ public class LottoCompany {
             boolean bonus = findBonusBall(lotto);
 
             LottoPrice lottoPrice = LottoPrice.find(match, bonus);
-            totalPrices.put(lottoPrice, totalPrices.get(lottoPrice) + 1 );
+            totalPrices.put(lottoPrice, totalPrices.get(lottoPrice) + 1);
             winningMoney += lottoPrice.getPrice();
         }
 
@@ -53,7 +38,7 @@ public class LottoCompany {
     private int findMatchBall(Lotto lotto) {
         int match = 0;
         for (Integer number : lotto.getNumbers()) {
-            if(winningNumber.getNumbers().contains(number)){
+            if (winningNumber.getNumbers().contains(number)) {
                 match++;
             }
         }
@@ -65,4 +50,27 @@ public class LottoCompany {
         return lotto.getNumbers().contains(winningNumber.getBonusNum());
     }
 
+    public double getYield() {
+        return (double)winningMoney / (double)money * 100;
+    }
+
+    public void setWinningNumber(WinningNumber winningNumber) {
+        this.winningNumber = winningNumber;
+    }
+
+    public void setMoney(String money) {
+        this.money = Integer.parseInt(money);
+    }
+
+    public long getMoney() {
+        return money;
+    }
+
+    public long getWinningMoney() {
+        return winningMoney;
+    }
+
+    public Map<LottoPrice, Integer> getTotalPrices() {
+        return totalPrices;
+    }
 }

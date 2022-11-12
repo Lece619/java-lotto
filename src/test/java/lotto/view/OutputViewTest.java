@@ -72,4 +72,16 @@ class OutputViewTest {
 
         Assertions.assertThat(output.toString().trim()).contains("3개 일치 (5,000원)");
     }
+
+    @Test
+    @DisplayName("수익률 출력 테스트")
+    void printYield(){
+
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        outputView.printYield(100.000);
+
+        Assertions.assertThat(output.toString().trim()).contains(" ");
+    }
 }
