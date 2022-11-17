@@ -80,8 +80,19 @@ class OutputViewTest {
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        outputView.printYield(100.000);
+        outputView.printYield(1000000.000);
 
-        Assertions.assertThat(output.toString().trim()).contains(" ");
+        Assertions.assertThat(output.toString().trim()).contains("1,000,000.0%");
+    }
+
+    @Test
+    @DisplayName("수익률 포맷팅 테스트")
+    void formatting(){
+
+        double yield = 11221231.16;
+
+        String result = outputView.formattingYield(yield);
+
+        Assertions.assertThat(result).isEqualTo("11,221,231.2");
     }
 }

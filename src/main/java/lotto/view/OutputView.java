@@ -3,6 +3,7 @@ package lotto.view;
 import lotto.VO.LottoPrice;
 import lotto.domain.Lotto;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +17,7 @@ public class OutputView {
     private static final String INPUT_WINNING_NUMBER = "당첨 번호를 입력해 주세요.";
     private static final String INPUT_BONUS_NUMBER = "보너스 번호를 입력해 주세요.";
     private static final String WINNING_PRICE_CONFIRMATION = "당첨 통계\n---";
-    private static final String TOTAL_YIELD = "총 수익률은 %.1f%%입니다.\n";
+    private static final String TOTAL_YIELD = "총 수익률은 %s%%입니다.\n";
 
     public void printPurchaseMessage(){
         System.out.println(PURCHASE_MESSAGE);
@@ -68,6 +69,14 @@ public class OutputView {
     }
 
     public void printYield(double yield) {
-        System.out.printf(TOTAL_YIELD, yield);
+        String formattedYield = formattingYield(yield);
+        System.out.printf(TOTAL_YIELD, formattedYield);
     }
+
+    public String formattingYield(double yield) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###.0");
+        return decimalFormat.format(yield);
+    }
+
+
 }
